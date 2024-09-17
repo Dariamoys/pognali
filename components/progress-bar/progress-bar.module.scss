@@ -1,0 +1,80 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.progress-bar {
+  position: relative;
+  padding-top: 43px;
+  width: fit-content;
+  height: fit-content;
+
+  @include vp-1023 {
+    padding-top: 68px;
+    order:1;
+    padding: 0;
+    justify-self: center;
+    align-self: center;
+  }
+
+}
+
+.progress-bar__list {
+  display: grid;
+  grid-template-columns: max-content;
+  align-content: center;
+  row-gap: 4px;
+  line-height: 100%;
+  color: $color-default-white;
+
+    @include vp-1023 {
+    color: #161c35;
+  }
+
+  & dt {
+    align-self: center;
+    padding-left: 5%;
+    font-size: 18px;
+    line-height: 100%;
+      @include vp-1023 {
+        color: #444;
+    }
+  }
+
+  & dd {
+    position: relative;
+    grid-row: 1/2;
+    font-size: 38px;
+    line-height: 100%;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 53px;
+      height: 2px;
+      background-color: $color-default-white;
+      opacity: 30%;
+      bottom: 0;
+      left: -10%;
+
+      @include vp-1023 {
+        background-color: #444444;
+      }
+    }
+  }
+}
+
+// .progress-bar svg {
+//   position: absolute;
+//   top: 36%;
+//   left: -69%;
+//   color: #4d99d6;
+
+//   @include vp-1023 {
+//     top: -30%;
+//   }
+
+//   @include vp-767 {
+//     width: 100px;
+//     height: 100px;
+//   }
+
+// }

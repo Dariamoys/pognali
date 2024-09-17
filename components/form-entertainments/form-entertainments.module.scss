@@ -1,0 +1,246 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.entertainments {
+  margin-top: 80px;
+  margin-bottom: 8px;
+
+  @include vp-1023 {
+    margin-top: 29px;
+  }
+
+  label {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    color: $color-catalina-blue;
+    display: flex;
+    flex-direction: column;
+    margin-right: 85px;
+
+    @include vp-1179 {
+      margin-right: 60px;
+    }
+
+    @include vp-1023 {
+      margin-right: 0;
+    }
+
+    @include vp-767 {
+      width: 100%;
+      font-size: 18px;
+
+      & span {
+        padding-left: 15px;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: calc(50% - 3px);
+          left: -3px;
+          width: 6px;
+          height: 6px;
+          border: solid 1px $color-catalina-blue;
+          border-radius: 50%;
+          z-index: 2;
+          background-color: $color-catalina-blue;
+          display: none;
+
+          @include vp-767 {
+            display: block;
+          }
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: calc(50% - 1px);
+          left: -12px;
+          width: 12px;
+          height: 2px;
+          background-color: $color-catalina-blue;
+        }
+      }
+    }
+  }
+
+  textarea {
+    width: 730px;
+    height: 142px;
+    margin-top: 35px;
+    border: solid 1px $color-link-water;
+    border-radius: 4px;
+    padding: 26px 24px 22px 25px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    color: $color-charcoal;
+
+    transition: all $trans-default;
+
+    &:hover {
+      border-color: $color-unnamed2;
+    }
+
+    &:focus {
+      border-color: $color-unnamed3;
+      outline: 0;
+    }
+
+    @include vp-1179 {
+      width: 600px;
+    }
+
+    @include vp-1023 {
+      width: 500px;
+      height: 140px;
+    }
+
+    @include vp-767 {
+      width: 100%;
+      height: 220px;
+      font-size: 16px;
+    }
+  }
+
+  .error-message {
+    position: absolute;
+    bottom: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 1px solid $color-unnamed6;
+    border-top: 0;
+
+    display: none;
+    align-items: center;
+    width: 730px;
+    height: 56px;
+    padding: 0 21px;
+
+    background-color: $color-unnamed5;
+
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    color: $color-unnamed4;
+  }
+
+  &::placeholder {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+    color: $color-charcoal;
+
+    @include vp-767 {
+      font-size: 16px;
+    }
+  }
+}
+
+.entertainments__item {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: 50px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 23px;
+    left: 773px;
+    width: 2px;
+    height: 255px;
+    background-color: $color-catalina-blue;
+
+    @include vp-1179 {
+      left: 637.5px;
+    }
+
+    @include vp-1023 {
+      left: 539px;
+    }
+
+    @include vp-767 {
+      left: -12px;
+      top: 8px;
+      height: 325px;
+    }
+  }
+
+  &:last-child::before {
+    display: none;
+  }
+}
+
+.entertainments__image {
+  width: 70px;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+
+
+  & img {
+    width: 70px;
+    height: 47px;
+    border-radius: 4px;
+    object-fit: cover;
+
+    @include vp-767 {
+      width: 35px;
+      height: 24px;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 12px);
+    left: -48px;
+    width: 14px;
+    height: 14px;
+    border: solid 1px $color-catalina-blue;
+    border-radius: 50%;
+    z-index: 2;
+    background-color: $color-catalina-blue;
+
+    @include vp-1179 {
+      left: -28px;
+    }
+
+    @include vp-1023 {
+      left: 103px;
+    }
+  }
+
+  @include vp-1023 {
+    margin-left: -70px;
+  }
+
+  @include vp-767 {
+    width: 35px;
+    height: 24px;
+    margin-left: -35px;
+  }
+}
+
+.error {
+  textarea {
+    border-color: $color-unnamed6;
+
+    &:hover {
+      border-color: $color-unnamed6;
+    }
+
+    &:focus {
+      border-color: $color-unnamed6;
+    }
+  }
+
+  .error-message {
+    display: flex;
+  }
+}

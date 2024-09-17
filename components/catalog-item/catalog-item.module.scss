@@ -1,0 +1,784 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.traveler__profile-photo {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  overflow: hidden;
+
+  @include vp-1023 {
+    border-radius: 20px;
+    width: 190px;
+    height: 190px;
+  }
+
+  @include vp-767 {
+    border-radius: 35px;
+    width: 70px;
+    height: 70px;
+    margin: 0;
+    margin-left: 18px;
+  }
+
+  .photo--img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.traveler__profile-info {
+  display: grid;
+  grid-template-columns: repeat(2, 276px);
+  gap: 32px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+  @media (max-width: (1350px)) {
+    gap: 30px;
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  @include vp-1023 {
+    gap: 0;
+    justify-content: space-between;
+    grid-template-columns: 3fr 1fr;
+  }
+
+  @include vp-767 {
+    width: 100%;
+    padding-right: 0;
+    grid-template-columns: auto;
+    grid-column: 1/-1;
+  }
+}
+
+/* // Левая столб */
+.info__selfdata {
+  padding: 46px 0 48px;
+  display: flex;
+  flex-direction: column;
+
+  @include vp-1023 {
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @include vp-767 {
+    padding: 0;
+    padding-top: 10px;
+    padding-left: 6px;
+    padding-right: 20px;
+    width: 100%;
+  }
+}
+
+.selfdata__title-wrapper {
+  display: flex;
+  gap: 15px;
+
+  @include vp-1023{
+    gap: 22px;
+  }
+
+  span {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    margin-top: 10px;
+    border-radius: 4px;
+    background-color: $color-unnamed10;
+
+    @include vp-1023 {
+      order: 2;
+    }
+
+    @include vp-767{
+      display: none;
+    }
+  }
+}
+
+.selfdata__title {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+  color: $color-catalina-blue;
+
+  @include vp-1023 {
+    margin-left: 19px;
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.selfdata__hashtags {
+  justify-self: end;
+  margin-top: 20px;
+  padding-left: 24px;
+  display: block;
+  max-height: 69px;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: $color-default-black;
+
+  span {
+    display: inline-block;
+  }
+
+  @include vp-1023 {
+    padding-left: 17px;
+    margin-top: 19px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  @include vp-767 {
+    margin: 0;
+    width: 100%;
+    max-height: fit-content;
+    font-size: 15px;
+    line-height: 20px;
+    color: $color-default-black;
+  }
+}
+
+.selfdata__buttons {
+  margin-top: auto;
+  display: flex;
+  padding-left: 19px;
+
+  @include vp-1023 {
+    margin-left: 10px;
+    padding-left: 5px;
+    gap: 5px;
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+
+  .btn-invite {
+    display: block;
+    width: 150px;
+    height: 50px;
+    margin-right: 4px;
+    border-radius: 25px;
+    background-color: $pale-cornflower-blue;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    color: $color-unnamed3;
+    transition: all $trans-default;
+
+    &:hover {
+      background-color: $color-picton-blue1;
+    }
+
+    &:active {
+      background-color: $color-picton-blue1;
+
+      span {
+        opacity: 0.3;
+      }
+    }
+
+    @include vp-1023 {
+      min-width: 170px;
+    }
+  }
+
+  .buttons__likes {
+    display: flex;
+    align-items: center;
+
+    .btn-like {
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin-right: 3px;
+      border-radius: 25px;
+      background-color: $color-solitude4;
+      transition: all $trans-default;
+
+      &:hover {
+        background-color: $color-link-water;
+      }
+      &:active {
+        background-color: $color-solitude4;
+
+        img {
+          opacity: 0.1;
+        }
+      }
+
+      img {
+        margin: 0 auto;
+        opacity: 0.5;
+        width: 20px;
+        height: 19px;
+      }
+    }
+
+    .likes-count {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 20px;
+      color: #161c35;
+    }
+  }
+}
+
+/* // Правая столб */
+.info__traveldata {
+  padding: 50px 0 42px;
+  padding-left: 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+
+  @media (max-width: (1350px)) {
+    padding-left: 0;
+  }
+
+  @include vp-1023 {
+    width: 60px;
+    justify-self: end;
+    padding: 0;
+  }
+
+  @include vp-767 {
+    width: 100%;
+    padding: 0;
+    padding-top: 21px;
+  }
+}
+
+.traveldata__countries-wrapper {
+  position: relative;
+
+  @include vp-1023 {
+    display: none;
+  }
+
+  @include vp-767 {
+    display: block;
+    border-top: 1px solid $color-solitude3;
+    padding-top: 25px;
+  }
+}
+
+.traveldata__countries {
+  list-style: none;
+}
+
+.traveldata__title {
+  display: none;
+  position: absolute;
+  top: -9px;
+  left: 23px;
+  padding: 0 2px;
+  text-transform: lowercase;
+  font-weight: 400;
+  font-style: 14px;
+  line-height: 16px;
+  color: $color-charcoal;
+  background-color: $color-default-white;
+
+  @include vp-767 {
+    display: block;
+  }
+}
+
+.countries__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include vp-767 {
+    margin-bottom: 10px;
+    padding: 0 25px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .countries__flag {
+    margin-right: 18px;
+    flex-shrink: 0;
+
+    img {
+      width: 40px;
+      height: 24px;
+      object-fit: cover;
+      border-radius: 4px;
+
+      @include vp-767 {
+        width: 26px;
+        height: 18px;
+        border-radius: 2px;
+      }
+    }
+
+    @include vp-767 {
+      margin-right: 14px;
+      width: 26px;
+      height: 18px;
+    }
+  }
+  .countries__name {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    color: $color-catalina-blue;
+    word-break: break-all;
+
+    @include vp-767 {
+      font-size: 15px;
+      line-height: 16px;
+    }
+  }
+}
+
+.traveldata__extra {
+  display: flex;
+  justify-content: space-between;
+
+  @include vp-1023 {
+    flex-wrap: wrap;
+    width: 60px;
+    gap: 0;
+  }
+
+  @include vp-767 {
+    width: 100%;
+    margin-top: 27px;
+    padding-left: 5px;
+    border-top: 1px solid $color-solitude3;
+  }
+}
+
+.traveldata__extra-wrapper {
+  position: relative;
+  display: flex;
+  width: 120px;
+  justify-content: space-between;
+  align-items: center;
+
+  @include vp-1023 {
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  @include vp-767 {
+    flex-direction: row;
+    margin: 0;
+    margin-left: 21px;
+    margin-top: 24px;
+    width: auto;
+    height: 32px;
+  }
+}
+
+.extra__transport {
+  display: flex;
+  width: 120px;
+  justify-content: space-between;
+  align-items: center;
+
+  @include vp-1023 {
+    flex-direction: column;
+    width: auto;
+  }
+
+  @include vp-767 {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+  .transport__title {
+    display: none;
+    position: absolute;
+    top: calc(-9px - 24px);
+    left: 0;
+    background-color: $color-default-white;
+    text-transform: lowercase;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: $color-charcoal;
+
+    @include vp-767 {
+      display: block;
+    }
+  }
+
+  .transport__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include vp-1023 {
+      margin-bottom: 9px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include vp-767 {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: $color-solitude3;
+      margin-right: 1px;
+      margin-bottom: 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    img {
+      opacity: 0.15;
+      width: 100%;
+
+      @include vp-767 {
+        width: 70%;
+      }
+    }
+  }
+
+  .transport__item--active {
+
+    img {
+      opacity: 1;
+    }
+  }
+
+.extra__level {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  position: relative;
+
+  @include vp-1023 {
+    margin-top: 12px;
+  }
+
+  @include vp-767 {
+    margin-top: 16px;
+    margin-right: 22px;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.level__title {
+  display: none;
+  position: absolute;
+  top: calc(-9px - 19px);
+  left: 0;
+  background-color: $color-default-white;
+  text-transform: lowercase;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: $color-charcoal;
+
+  @include vp-767 {
+    display: block;
+  }
+}
+
+.level__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(60px - 3px * 2);
+  text-align: center;
+  padding-left: calc((60px - 34px) / 2 - 3px);
+  padding-right: calc((60px - 34px) / 2 - 3px);
+  padding-top: 3px;
+
+  @include vp-767 {
+    height: calc(45px - 3px * 2);
+    padding-left: calc((45px - 31px) / 2 - 3px);
+    padding-right: calc((45px - 31px) / 2 - 3px);
+  }
+}
+
+.level__text--top {
+  margin: 0;
+  width: 40px;
+  height: 24px;
+  border-bottom: 1px solid rgba($color-default-black, 0.1);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  color: #1d2e5b;
+
+  @include vp-767 {
+    border-bottom: 0;
+  }
+}
+
+.level__text--bot {
+  margin: 0;
+  margin-top: 2px;
+  width: 40px;
+  height: 14px;
+  text-transform: lowercase;
+  opacity: 0.4;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: $color-default-black;
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.level__progress {
+  position: absolute;
+  top: 0;
+}
+//Список стран для планшета
+.countries__wrap {
+  display: none;
+  position: relative;
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  @include vp-1023 {
+    grid-column: 1/-1;
+    display: block;
+    padding: 0;
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.wrap__title {
+  background-color: $color-default-white;
+  text-transform: lowercase;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 16px;
+  color: $color-charcoal;
+
+  @include vp-1023 {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    padding-left: 12px;
+    margin-left: 35px;
+    margin-bottom: 21px;
+    background-color: #fff;
+  }
+}
+
+.wrap__countries {
+  width: 100%;
+  display: flex;
+  padding: 0 36px;
+
+  @include vp-1023 {
+    padding: 0;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    &::after {
+
+      @include vp-1023 {
+        position: absolute;
+        content: "";
+        width: 498px;
+        height: 1px;
+        right: 0;
+        top: 10px;
+        left: -38px;
+        width: calc(100% + 70px);
+        background-color: #edeff6;
+      }
+    }
+  }
+}
+
+.wrap__countries__item {
+  display: flex;
+  align-items: center;
+  margin-right: 11px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .wrap__countries__flag {
+    margin-right: 12px;
+
+    img {
+      min-width: 36px;
+      min-height: 24px;
+      object-fit: cover;
+    }
+  }
+
+  .wrap__countries__name {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    color: $color-catalina-blue;
+  }
+}
+//Блок имения для мобилок
+.name_mob {
+  display: none;
+  margin-left: 16px;
+
+  @include vp-767 {
+    display: block;
+    padding-right: 20px;
+  }
+
+  .title_mob {
+    height: 40px;
+    position: relative;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    color: $color-catalina-blue;
+
+    @include vp-767 {
+      width: calc(100% - 2px);
+      padding-left: 19px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 8px;
+      right: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 4px;
+      background-color: $color-unnamed10;
+    }
+
+    .title_text {
+      display: inline-block;
+      max-width: 130px;
+    }
+  }
+
+  .likes_mob {
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 5px;
+    margin-left: -19px;
+
+    .btn-like {
+      bottom: 0;
+      display: block;
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+      background-color: $color-solitude4;
+      transition: all $trans-default;
+
+      &:hover {
+        background-color: $color-link-water;
+      }
+
+      &:active {
+        background-color: $color-solitude4;
+
+        img {
+          opacity: 0.1;
+        }
+      }
+
+      img {
+        margin: 0 auto;
+        opacity: 0.5;
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    .count_mob {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 16px;
+      color: $color-unnamed3;
+    }
+  }
+}
+
+.btn_mob {
+  display: none;
+  width: 100%;
+
+  @include vp-767 {
+    display: block;
+    grid-column: 1 / -1;
+  }
+
+  .btn {
+    display: block;
+    width: calc(100% - 40px);
+    height: 40px;
+    margin: 0 20px;
+    margin-top: 13px;
+    border-radius: 20px;
+    background-color: $pale-cornflower-blue;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 17px;
+    color: $color-unnamed3;
+    transition: all $trans-default;
+
+    &:hover {
+      background-color: $color-picton-blue1;
+    }
+
+    &:active {
+      background-color: $color-picton-blue1;
+
+      span {
+        opacity: 0.3;
+      }
+    }
+  }
+}

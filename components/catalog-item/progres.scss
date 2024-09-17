@@ -1,0 +1,14 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+
+.CircularProgressbar-path {
+  stroke: $color-picton-blue1;
+
+  @include vp-1023 {
+    stroke: $color-unnamed11;
+  }
+}
+.CircularProgressbar-trail {
+  stroke: $color-default-white;
+}

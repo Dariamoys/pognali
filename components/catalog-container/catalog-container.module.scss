@@ -1,0 +1,54 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+@import '../../styles/utils.scss';
+.section__container {
+  background-color: $color-solitude3;
+}
+.content__container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: start;
+  grid-column-gap: 20px;
+  column-gap: 20px;
+
+  @include vp-1023 {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    order: 2;
+
+    @include vp-1023 {
+      width: 100%;
+      order: 1;
+    }
+  }
+
+  .list {
+    order: 1;
+
+    @include vp-1023 {
+      width: 100%;
+      order: 2;
+    }
+  }
+}
+
+.pagination {
+  order: 3;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}

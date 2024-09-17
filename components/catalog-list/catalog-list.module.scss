@@ -1,0 +1,55 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.traveler {
+  max-width: 951px;
+  width: 100%;
+}
+
+.traveler__item {
+  max-width: 951px;
+  padding-right: 46px;
+  width: 100%;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 285px auto;
+  gap: 39px;
+  background-color: $color-default-white;
+  margin-bottom: 30px;
+  min-height: 286px;
+  cursor: pointer;
+
+  @media (max-width: (1237px)) {
+    grid-template-columns: 200px auto;
+    column-gap: 14px;
+    row-gap: 20px;
+    padding-right: 10px;
+  }
+
+  @include vp-1023 {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    padding: 33px;
+    padding-right: 25px;
+    padding-bottom: 21px;
+    margin-bottom: 43px;
+    overflow: hidden;
+  }
+
+  @include vp-767 {
+    width: calc(100% - 50px);
+    padding: 15px 0 23px 0;
+    grid-template-columns: 70px 1fr;
+    margin: 0 25px;
+    margin-bottom: 10px;
+    gap: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &--my {
+    box-shadow: 0px 4px 20px 0px #00000040;
+  }
+}

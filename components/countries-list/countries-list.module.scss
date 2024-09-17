@@ -1,0 +1,174 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.countries-list {
+  box-shadow: 0px 8px 16px 0px #3650942E;
+  width: 100%;
+  padding: 0 25px;
+  display: flex;
+  z-index: 10;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+
+  @include vp-1023 {
+    padding: 0 0 0 30px;
+  }
+
+  @include vp-767 {
+    flex-wrap: wrap;
+    padding: 0;
+  }
+}
+
+.countries-letter__list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 360px;
+  height: 408px;
+  grid-gap: calc(100% / 24);
+  margin: 35px 105px 35px 0;
+
+  @include vp-1439 {
+    margin-right: 35px;
+  }
+
+  @include vp-1023 {
+    border-right: 1px solid $color-link-water;
+    border-bottom: 1px solid $color-link-water;
+    width: 266px;
+    height: 350px;
+    grid-gap: 0;
+    margin-right: 68px;
+  }
+
+  @include vp-767 {
+    margin: 0;
+    height: 206px;
+  }
+}
+
+.countries-letter__item {
+  width: calc(100% / 6);
+  height: 68px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: solid 1px $color-link-water;
+  border-radius: 4px;
+
+  color: $color-catalina-blue;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+
+  transition: all $trans-default;
+
+  &:hover {
+    border-color: $color-unnamed2;
+  }
+
+  &--active {
+    background-color: $color-catalina-blue;
+    border-color: $color-catalina-blue;
+    color: $color-default-white;
+  }
+
+  @include vp-1023 {
+    border-radius: 0px;
+    border: 0;
+    border-left: 1px solid $color-link-water;
+    border-top: 1px solid $color-link-water;
+    min-width: 53px;
+
+    &:hover {
+      border-color: $color-link-water;
+    }
+  }
+
+  @include vp-767 {
+    font-size: 14px;
+    line-height: 18px;
+    min-width: calc(100% / 5);
+    height: 41px;
+
+    &--active {
+      background-color: $color-solitude3;
+      color: $color-catalina-blue;
+    }
+  }
+}
+
+.countries-letter__btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  span {
+    padding: 0 0 0 3px;
+  }
+}
+
+
+.countries-countries__list {
+  height: auto;
+  // width: 240px;
+  padding: 36px 0 35px 32px;
+  max-height: 443px;
+  max-width: 200px;
+
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+
+  border-left: 1px solid rgba($color-hawkes-blue, 0.5);
+
+  @include vp-1023 {
+    padding: 35px 10px 35px 30px;
+    min-width: 209px;
+    width: calc(100% / 2.8);
+  }
+
+  @include vp-767 {
+    padding: 20px 10px 20px 19px;
+    height: auto;
+    width: 100%;
+
+    border: 1px solid $color-link-water;
+    border-top: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+}
+
+.countries-countries__item {
+  margin-bottom: 7px;
+  display: inline-block;
+  width: 167px;
+
+  text-align: left;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  color: $color-charcoal;
+
+  transition: all $trans-default;
+
+  &:hover {
+    color: $color-catalina-blue;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+
+  button {
+    text-align: left;
+  }
+
+  @include vp-767 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}

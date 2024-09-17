@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-default-white;
+  overflow: hidden;
+}
+
+.main {
+  flex-grow: 1;
+  padding-top: $header-gutter-desc;
+  background-color: #edeff6;
+
+  @include vp-1023 {
+    padding-top: $header-gutter-mob;
+  }
+}

@@ -1,0 +1,398 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+
+.choosing-country__input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+
+    @include vp-767 {
+      margin-bottom: 21px;
+    }
+  }
+
+  @include vp-767 {
+    width: 100%;
+  }
+}
+
+.input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  width: 73%;
+  margin-right: 85px;
+
+  @include vp-1023 {
+    min-width: 369px;
+    width: 68%;
+
+    margin-right: 52px;
+  }
+
+  @include vp-767 {
+    min-width: 168px;
+    // width: calc(100% - 52px);
+    width: calc(100%);
+
+    margin-right: 0;
+  }
+}
+
+.input__button {
+  height: 70px;
+  width: 100%;
+  border: 1px solid $color-default-white;
+  display: flex;
+  border-radius: 4px;
+
+  transition: all $trans-default;
+
+  &:hover {
+    background-color: $color-unnamed1;
+
+    .choosing-country__icon-plus {
+      opacity: 0.3;
+    }
+  }
+
+  &:active {
+    .choosing-country__icon-plus {
+      opacity: 0.1;
+    }
+  }
+
+  @include vp-767 {
+    height: 42px;
+  }
+}
+
+.input__text {
+  display: block;
+  width: calc(100% - 81px);
+  height: 100%;
+  padding: 28px 25px 22px 25px;
+
+  transition: all $trans-default;
+
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0.1em;
+  color: $color-catalina-blue;
+
+  @include vp-1023 {
+    text-wrap: nowrap;
+  }
+
+  @include vp-767 {
+    font-size: 14px;
+    line-height: 18px;
+    padding: 13px 10px 0 10px;
+    margin-bottom: 13px;
+    height: calc(13px + 18px);
+    overflow: hidden;
+    width: calc(100% - 30px);
+  }
+}
+
+.input__btns {
+  width: 81px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5px;
+  padding-left: 9px;
+
+  @include vp-767 {
+    width: 42px;
+    padding-left: 0;
+  }
+
+  .choosing-country__icon-plus {
+    opacity: 0.2;
+    transition: all $trans-default;
+
+    @include vp-767 {
+      width: 10px;
+    }
+  }
+
+  .choosing-country__icon-arrow {
+    display: none;
+    width: auto;
+
+    @include vp-767 {
+      width: 12px;
+    }
+  }
+
+  .choosing-country__icon-close {
+    display: none;
+    opacity: 0.3;
+    transition: all $trans-default;
+    cursor: pointer;
+    width: auto;
+    margin-left: 25px;
+
+    @include vp-767 {
+      width: calc(9px + 16px);
+      height: calc(8.25px + 16px);
+      padding: 8px;
+      opacity: 1;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:active {
+      opacity: 0.1;
+    }
+  }
+}
+
+
+//Стрелка
+.choosing-country__arrow {
+  position: absolute;
+  right: calc(53px - 4px);
+  top: -16px;
+  display: none;
+
+  @include vp-767 {
+    display: block;
+  }
+}
+
+
+.choosing-country__input--active {
+  .choosing-country__icon-plus {
+    display: none;
+  }
+
+  .choosing-country__icon-arrow {
+    display: block;
+  }
+
+  .input__button {
+    border: solid 1px $color-link-water;
+
+    &:hover {
+      background-color: $color-default-white;
+      border: solid 1px $color-rock-blue;
+    }
+  }
+
+  @include vp-767 {
+    .input {
+      width: calc(100% - 52px);
+    }
+  }
+}
+
+.choosing-country__input--open {
+  .input__button {
+    background-color: $color-catalina-blue;
+    border: solid 1px $color-catalina-blue;
+    cursor: default;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &:hover {
+      background-color: $color-catalina-blue;
+      border: solid 1px $color-catalina-blue;
+    }
+  }
+
+  .input__text {
+    padding: 25px 25px 22px 12px;
+    color: $color-default-white;
+
+    @include vp-767 {
+      padding: 13px 10px 0 10px;
+    }
+  }
+
+  .choosing-country__icon-arrow {
+    display: none;
+  }
+
+  .choosing-country__icon-close {
+    display: block;
+  }
+
+  @include vp-767 {
+    .input {
+      width: calc(100%);
+    }
+  }
+}
+
+
+.choosing-country__image {
+  width: 70px;
+  height: 47px;
+  position: relative;
+
+  @include vp-767 {
+    position: absolute;
+    right: 0;
+    width: 53px;
+    height: 42px;
+    border: 1px solid $color-link-water;
+    border-radius: 4px;
+
+    display: none;
+
+    .choosing-country__input--active & {
+      display: block;
+    }
+
+    .choosing-country__input--open & {
+      display: none;
+    }
+  }
+
+  & img {
+    width: 70px;
+    height: 47px;
+    display: none;
+    border-radius: 6px;
+    object-fit: cover;
+
+    @include vp-767 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      width: 35px;
+      height: 24px;
+      border-radius: 4px;
+    }
+
+    .choosing-country__input--active & {
+      display: block;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 7px);
+    left: -47px;
+    width: 14px;
+    height: 14px;
+    border: solid 1px $color-link-water;
+    border-radius: 50%;
+    z-index: 0;
+    background-color: $color-link-water;
+
+    transition: all $trans-default;
+
+    @include vp-1023 {
+      left: -33px;
+    }
+
+    @include vp-767 {
+      width: 8px;
+      height: 8px;
+      left: -5px;
+      top: calc(50% - 4px);
+    }
+
+    .choosing-country__input--active & {
+      background-color: $color-default-white;
+    }
+
+    .choosing-country__input--added & {
+      background-color: $color-catalina-blue;
+      border: solid 1px $color-catalina-blue;
+    }
+  }
+}
+
+.choosing-country__delete {
+  position: absolute;
+  right: 0;
+  display: none;
+
+  transition: all $trans-default;
+
+  .choosing-country__input--active & {
+    display: block;
+  }
+
+  @include vp-767 {
+    background-color: $color-solitude3;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    top: -10px;
+    right: -10px;
+
+    .choosing-country__input--open & {
+      display: none;
+    }
+  }
+
+  .delete-btn {
+    opacity: 0.5;
+    img {
+      width: auto;
+    }
+
+    @include vp-767 {
+      width: 100%;
+      height: 100%;
+      padding: 6px;
+
+      img {
+        width: 9px;
+      }
+    }
+
+    &:hover {
+      opacity: 0.3;
+    }
+
+    &:active {
+      opacity: 0.05;
+    }
+  }
+}
+
+.choosing-country__countries-list {
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: none;
+  background-color: $color-default-white;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+
+  transition: all $trans-default;
+
+  @include vp-1023 {
+    width: calc(100% + 209px);
+  }
+
+  @include vp-767 {
+    width: 100%;
+  }
+
+  .choosing-country__input--open & {
+    display: block;
+  }
+}

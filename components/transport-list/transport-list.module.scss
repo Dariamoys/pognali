@@ -1,0 +1,79 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.transport-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  align-items: center;
+
+  @include vp-767 {
+    max-width: 100%;
+    gap: 3px;
+  }
+}
+
+.transport__list-item {
+  position: relative;
+}
+
+.transport__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background-color: $color-default-white;
+  cursor: pointer;
+  transition: box-shadow .3s ease, background-color .3s ease, color .3s ease;
+  color: #1d2e5b;
+
+  @include vp-767 {
+    width: 31px;
+    height: 31px;
+  }
+
+  &:hover {
+    color: #b2b2b2;
+    box-shadow: 0 2px 6px 0 rgba(22, 28, 53, .17);
+  }
+
+  &:active {
+    background-color: #e2e5f1;
+  }
+}
+
+.transport__button:hover svg {
+  color: #b2b2b2;
+}
+
+.transport__button svg {
+  opacity: 15%;
+
+  @include vp-767 {
+    width: 17px;
+    height: 16px;
+  }
+}
+
+
+
+.transport__button:hover svg {
+  color: #b2b2b2;
+  opacity: 1;
+}
+
+.transport__button--active svg {
+  opacity: 1;
+}
+
+.transport__button--active:active {
+  background-color: #e2e5f1;
+}
+
+.transport__button--active:hover svg {
+  color: #616d8c;
+}

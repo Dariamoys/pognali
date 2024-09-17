@@ -1,0 +1,155 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.pagination {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 131px;
+  margin-top: 66px;
+  max-width: 955px;
+
+  @include vp-1023 {
+    width: 100%;
+    margin-bottom: 110px;
+    margin-top: 51px;
+  }
+
+  @include vp-767 {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 116px;
+  }
+}
+
+.pagination__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  background-color: $color-default-white;
+  border-radius: 20px;
+  height: 100px;
+
+  @include vp-767 {
+    position: relative;
+    justify-content: center;
+    height: 51px;
+    width: calc(100% - 50px);
+    justify-self: center;
+    min-width: 270px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 2px;
+      height: 100%;
+      left: 50%;
+      background-color: #edeff6;
+    }
+  }
+}
+
+.pagination__numbers {
+  display: flex;
+  margin-left: 29px;
+
+  @include vp-1023 {
+    margin-left: 29px;
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.pagination__link {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #1d2e5b;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all $trans-default;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.pagination__active {
+  background-color: $color-picton-blue1;
+}
+
+.pagination__arrows {
+  display: flex;
+  flex-basis: 88px;
+  justify-content: space-between;
+  margin-right: 38px;
+
+  @include vp-1023 {
+    flex-basis: 52px;
+    margin-right: 63px;
+  }
+
+  @include vp-767 {
+    flex-basis: 157px;
+    margin-right: 11px;
+  }
+}
+
+.pagination__button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+
+  @include vp-1023 {
+    width: 25px;
+    height: 25px;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 13px;
+    left: 13px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #1d2e5b;
+    transform-origin: center;
+    transform: translateX(150%);
+
+    @include vp-1023 {
+      top: 0;
+    }
+
+    @include vp-767 {
+      transform: none;
+    }
+  }
+}
+
+.pagination__button--next {
+  &::after {
+    transform: rotate(180deg) translateX(-150%);
+
+    @include vp-1023 {
+      margin-left: 17px;
+    }
+
+    @include vp-767 {
+      margin-left: 0;
+      transform: rotate(180deg) translateX(0);
+    }
+  }
+}

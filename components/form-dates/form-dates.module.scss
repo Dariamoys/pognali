@@ -1,0 +1,282 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+
+.form_main {
+  width: 1160px;
+
+  @include vp-1439 {
+    width: 100%;
+  }
+}
+
+
+.form__base {
+  display: flex;
+  justify-content: space-between;
+
+  @include vp-1439 {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+
+//Стили для инпутов
+.form__inputs {
+  margin-top: 31px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 1400px;
+
+  @include vp-1439 {
+    width: 100%;
+    margin-top: 26px;
+  }
+
+  @include vp-767 {
+    margin-top: 42px;
+  }
+}
+
+.input__label {
+  display: flex;
+  align-items: center;
+
+  &:last-child {
+    margin-top: 14px;
+  }
+
+  @include vp-1439 {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.input__text {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 18px;
+
+  display: block;
+  width: 192px;
+
+  @include vp-1439 {
+    display: inline;
+    width: auto;
+    letter-spacing: 0.1em;
+
+    &:last-child {
+      opacity: 0.3;
+    }
+  }
+
+  @include vp-767 {
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0.09em;
+  }
+}
+
+.input__group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 29px;
+  margin-right: 35px;
+  width: 180px;
+  height: 70px;
+
+  border: 1px solid $color-link-water;
+  border-radius: 4px;
+
+  transition: $trans-default;
+
+  &:hover {
+    border-color: $color-rock-blue;
+
+    .count-btn {
+      line {
+        stroke: $color-unnamed2;
+      }
+      &:disabled {
+        opacity: 0.3;
+        line {
+          stroke: $color-unnamed8;
+        }
+      }
+    }
+  }
+
+  &:has(> .input__number:focus) {
+    border-color: $color-unnamed3;
+
+    .count-btn {
+      line {
+        stroke: $color-unnamed3;
+      }
+      &:disabled {
+        opacity: 0.3;
+        line {
+          stroke: $color-unnamed8;
+        }
+      }
+    }
+  }
+
+  @include vp-1439 {
+    width: 100%;
+    order: 2;
+
+    margin: 0;
+    margin-top: 24px;
+  }
+
+  @include vp-767 {
+    height: 43px;
+
+    margin-top: 8px;
+  }
+}
+
+.count-btn {
+  display: block;
+  height: 100%;
+  width: 60px;
+
+  &:disabled {
+    opacity: 0.3;
+  }
+
+  svg {
+    display: block;
+    margin: 0 auto;
+
+    line {
+      transition: all $trans-default;
+      stroke: $color-unnamed8;
+    }
+  }
+
+  @include vp-767 {
+    width: 42px;
+  }
+}
+
+.input__number {
+  display: block;
+  width: 60px;
+  height: 100%;
+  outline: none;
+
+  text-align: center;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 18px;
+
+  @include vp-1439 {
+    width: calc(100% - 120px);
+    line-height: 20px;
+  }
+
+  @include vp-767 {
+    width: calc(100% - 84px);
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+
+//Стили для чекбокса
+.checkbox__label {
+  position: absolute;
+  padding-top: 15px;
+  right: 192px;
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  @include vp-1439 {
+    position: relative;
+    left: 0;
+    margin-top: 34px;
+    margin-bottom: 20px;
+  }
+
+  @include vp-1023 {
+    margin-top: 10px;
+    margin-bottom: 38px;
+  }
+
+
+  @include vp-767 {
+    order: 2;
+    margin-top: 11px;
+    margin-bottom: 0;
+  }
+}
+
+.checkbox__text {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0.1em;
+
+  @include vp-767 {
+    text-transform: none;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: normal;
+  }
+}
+
+.input__checkbox {
+  display: none;
+
+  &:checked + .checkbox__item img {
+    opacity: 1;
+  }
+
+  &:active + .checkbox__item {
+    background-color: $color-solitude;
+    border: 1px solid $color-solitude;
+
+    img {
+      opacity: 0.3;
+    }
+  }
+}
+
+.checkbox__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  margin-right: 23px;
+
+  border: 1px solid $color-link-water;
+  border-radius: 4px;
+
+  transition: $trans-default;
+
+  &:hover {
+    border: 1px solid $color-rock-blue;
+  }
+
+  img {
+    opacity: 0;
+    transition: $trans-default;
+  }
+
+  @include vp-767 {
+    width: 26px;
+    height: 26px;
+    margin-right: 13px;
+  }
+}

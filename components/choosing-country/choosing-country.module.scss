@@ -1,0 +1,152 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.choosing-country {
+  padding-top: 60px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 220px;
+    width: 1px;
+    height: calc(100% + 173px);
+    background-color: $color-link-water;
+  }
+
+  label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    width: calc(100% - 270px);
+    margin-right: 85px;
+  }
+
+  input {
+    height: 70px;
+    width: 100%;
+    border: solid 1px $color-link-water;
+    padding: 26px 24px 22px 25px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    color: $color-catalina-blue;
+    text-transform: uppercase;
+
+    &:hover {
+      border: solid 1px $color-rock-blue;
+    }
+
+    &::placeholder {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1;
+      color: $color-catalina-blue;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.choosing-country__input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+
+.choosing-country__input--open {
+
+  input {
+    background-color: $color-catalina-blue;
+
+    &::placeholder {
+      color: $color-default-white;
+    }
+  }
+}
+
+.choosing-country__btn {
+  width: 22px;
+  height: 24px;
+  position: absolute;
+  top: 26px;
+  right: 24px;;
+
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.choosing-country__icon-close {
+  display: none;
+
+  .choosing-country__input--open & {
+    display: block;
+    opacity: 0.3;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.choosing-country__icon-arrow {
+  display: block;
+
+  .choosing-country__input--open & {
+    display: none;
+  }
+}
+
+.choosing-country__image {
+  width: 70px;
+  height: 47px;
+  position: relative;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    display: none;
+
+    .choosing-country__input--active & {
+      display: block;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 7px);
+    left: -42.5px;
+    width: 14px;
+    height: 14px;
+    border: solid 1px $color-link-water;
+    border-radius: 50%;
+    z-index: 2;
+    background-color: $color-default-white;
+
+    .choosing-country__input--active & {
+      background-color: $color-catalina-blue;
+      border: solid 1px $color-catalina-blue;
+    }
+  }
+}
+
+.choosing-country__countries-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: calc(100% - 270px);
+  display: none;
+
+  .choosing-country__input--open & {
+    display: block;
+  }
+}

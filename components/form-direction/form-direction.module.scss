@@ -1,0 +1,360 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.form-direction {
+  width: 100%;
+  padding: 0 0 73px;
+  z-index: 10;
+  position: relative;
+  background-color: #edeff6;
+
+  @include vp-1023 {
+    padding-bottom: 56px;
+  }
+
+  @include vp-767 {
+    padding-bottom: 68px;
+  }
+
+
+
+  &::after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 191px;
+    background-color: #192144;
+    border-radius: 0 0 53px 53px;
+
+    @include vp-1023 {
+      height: 240px;
+    }
+
+    @include vp-767 {
+      height: 44px;
+      border-radius: 0 0 25px 25px ;
+    }
+  }
+}
+
+.form-direction__wrapper {
+  display: grid;
+  grid-template-columns: auto 433px;
+  max-width: 1440px;
+  padding-left: 65px;
+
+  @include vp-1023 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-left: 36px;
+    padding-right: 25px;
+  }
+
+  @include vp-767 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 21px;
+    padding-bottom: 46px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+.form-direction__title {
+  position: relative;
+  padding: 69px 0 70px;
+  margin-bottom: 70px;
+  font-weight: 700;
+  font-size: 53px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: $color-default-white;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 358px;
+    height: 8px;
+    left: 0;
+    bottom: -3px;
+    background-color: #4d99d6;
+    border-radius: 4px;
+
+    @include vp-767 {
+      width: 214px;
+      height: 5px;
+      bottom: 0;
+    }
+  }
+
+  @include vp-1023 {
+    margin-bottom: 31px;
+    padding-top: 123px;
+  }
+
+  @include vp-767 {
+    font-size: 32px;
+    line-height: 26px;
+    margin: 0;
+    padding: 0;
+    padding-top: 2px;
+    padding-bottom: 15px;
+  }
+}
+
+.form-direction__form {
+  position: relative;
+  grid-area: 2;
+  align-self: flex-end;
+  max-height: 97px;
+
+  @include vp-1023 {
+    width: 98%;
+    order: 3;
+    align-self: auto;
+    max-height: 100%;
+  }
+
+  @include vp-767 {
+    width: 100%;
+    grid-row-start: 4;
+  }
+}
+
+.form-direction__label {
+  position: absolute;
+  content: "";
+  bottom: -10px;
+  left: 24px;
+  margin: 0;
+  background-color: #edeff6;
+  padding: 0 10px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: calc(1em / 5);
+  text-transform: uppercase;
+
+  @include vp-1023 {
+   bottom: -7px;
+   left: 50%;
+   transform: translateX(-50%);
+  }
+
+  @include vp-767 {
+   top:-10px;
+   bottom: auto;
+   font-weight: 600;
+   font-size: 16px;
+   line-height: 18px;
+   letter-spacing: 0;
+  }
+}
+
+.form-direction__input {
+  background-color: inherit;
+  border: 1px solid #cbced9;
+  border-radius: 10px;
+  min-height: 97px;
+  max-width: 732px;
+  width: 100%;
+  padding: 20px;
+  padding-left: 38px;
+  font-size: 20px;
+  line-height: 22px;
+  color: #444444;
+
+  @include vp-1023 {
+    min-height: 94px;
+    max-width: 100%;
+    padding-top: 22px;
+   }
+
+  @include vp-767 {
+    min-height: 89px;
+    padding-left: 28px;
+    padding-top: 37px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
+.form-direction__input::placeholder {
+  white-space: normal;
+  transform: translateY(-30%);
+}
+
+.form-direction__button {
+  display: none;
+
+  @include vp-1023 {
+    order: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 98%;
+    min-height: 60px;
+    margin-bottom: 22px;
+    border:none;
+    border-radius: 11px;
+    background-color: #dfe3f0;
+    text-transform: uppercase;
+    color: #1d2e5b;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 18px;
+    letter-spacing: 3px;
+    cursor: pointer;
+  }
+
+  @include vp-767 {
+    width: 100%;
+    letter-spacing: 0;
+    min-height: 40px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+  }
+
+  @include vp-767 {
+    grid-row-start: 3;
+   }
+}
+
+.form-direction__user-wrapper {
+  grid-area: span 2;
+  display: grid;
+  grid-template-columns: 69px auto;
+  max-width: 433px;
+
+  @include vp-1023 {
+    max-width: 98%;
+    grid-template-columns: 94px auto 94px;
+    row-gap: 50px;
+    column-gap: 55px;
+    margin: 0 0 21px;
+  }
+
+  @include vp-767 {
+    justify-content: center;
+    padding-left: 16px;
+    max-width: 100%;
+    grid-template-columns: repeat(2, 100px);
+    column-gap: 37px;
+    grid-row-start: 2;
+    margin: 0;
+  }
+}
+
+.form-direction__image__wrapper {
+  justify-self: end;
+  padding: 0 78px 0 0;
+  margin: 0 0 25px;
+
+  @include vp-1023 {
+    order:3;
+    justify-self: start;
+    padding: 0;
+    margin: 0;
+  }
+
+  @include vp-767 {
+    order:2;
+  }
+}
+
+.form-direction__image__wrapper img {
+  width: fit-content;
+  height: fit-content;
+  border-radius: 24px;
+
+  @include vp-1023 {
+    width: 94px;
+    height: 94px;
+    border-radius: 10px;
+  }
+
+  @include vp-767 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+}
+
+.form-direction__transport {
+  width: 100%;
+  min-height: 97px;
+  max-width: 384px;
+  grid-column-start: span 2;
+  display: flex;
+  position: relative;
+  align-self: end;
+  justify-self: end;
+  justify-content: center;
+  background-color: inherit;
+  border: 1px solid #cbced9;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+
+  @include vp-1023 {
+    max-width: 100%;
+    min-height: 95px;
+    order: 2;
+    grid-column-start: unset;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @include vp-767 {
+    position: absolute;
+    content: "";
+    left: 25px;
+    right: 25px;
+    bottom: 32px;
+    padding-left: 0;
+    padding-right: 0;
+    width: auto;
+    max-width: 100%;
+    min-height: 63px;
+    align-self: unset;
+    justify-self: unset;
+  }
+}
+
+.form-direction__transport h3 {
+  position: absolute;
+  content: "";
+  bottom: -10px;
+  left: 51%;
+  transform: translateX(-50%);
+  margin: 0;
+  background-color: #edeff6;
+  padding: 0 10px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+
+  @include vp-1023 {
+    bottom: -7px;
+    left: 50%;
+  }
+
+  @include vp-767 {
+    bottom: auto;
+    top: -10px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0;
+  }
+}

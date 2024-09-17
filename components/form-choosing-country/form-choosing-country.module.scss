@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.choosing-country {
+  padding-top: 60px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 224px;
+    width: 1px;
+    height: calc(100% + 135px);
+    background-color: $color-link-water;
+
+    @include vp-1023 {
+      right: 143px;
+      height: 100%;
+    }
+
+    @include vp-767 {
+      display: none;
+    }
+  }
+}

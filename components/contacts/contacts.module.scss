@@ -1,0 +1,61 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+
+.contacts__list {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+
+  @include vp-1023 {
+    flex-direction: column;
+  }
+}
+
+.contacts__link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contacts__img-desctop {
+  display: block;
+  width: 50px;
+  height: 50px;
+  transition: opacity $trans-default;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+
+  @include vp-1023 {
+    display: none;
+  }
+}
+
+.contacts__img-mobile {
+  display: none;
+  width: 45px;
+  height: 45px;
+
+  @include vp-1023 {
+    display: block;
+  }
+}
+
+.contacts__text {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.12;
+  color: $color-midnight-express;
+  display: none;
+  text-transform: uppercase;
+
+  @include vp-1023 {
+    display: inline-block;
+  }
+}
